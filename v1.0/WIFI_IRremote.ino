@@ -44,7 +44,7 @@ PubSubClient client(espClient);
 // 记录上次连接时间
 unsigned long lastReconnectTime = 0;
 unsigned long lastConnectionAttempt = 0;
-unsigned long reconnectInterval = 120000 ;  // 每30分钟重新连接一次    120000 2分钟    1800000 半小时
+unsigned long reconnectInterval = 1800000 ;  // 每30分钟重新连接一次    120000 2分钟    1800000 半小时
 
 
 // 连接 Wi-Fi
@@ -120,7 +120,7 @@ void sendData() {
 bool isTimeToConnect() {
     timeClient.update();
     int currentHour = timeClient.getHours();  // 获取当前小时
-    return (currentHour > 10 && currentHour < 12);  // 判断是否在 18:00 - 22:00 之间
+    return (currentHour > 18 && currentHour < 22);  // 判断是否在 18:00 - 22:00 之间
 }
 
 void setup() {
